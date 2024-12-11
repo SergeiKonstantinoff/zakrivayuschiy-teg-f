@@ -1,16 +1,321 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: "Inter", sans-serif;
+  margin-block-start: 100px;
+  font-weight: var(--main-weight);
+  background-image: var(--linear-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+@supports (font-variation-settings: var(--main-weight)) {
+  .page {
+    font-family: var(--main-family);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--main-color);
+  padding: clamp(7.5rem, 6.923rem + 2.462vi, 8rem) 0
+    clamp(7.5rem, 6.923rem + 2.462vi, 8rem);
+  background-color: var(--background-color);
+}
+
+.page-section {
+  inline-size: var(--page-inline-size);
+  margin: auto;
+}
+
+.header__logo {
+  font-family: var(--accent-family);
+  font-weight: var(--main-weight);
+  font-size: clamp(3.063rem, 2.71rem + 1.502vi, 4.063rem);
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-block-end: 20px;
+}
+
+.header__title {
+  font-family: var(--accent-family);
+  font-size: clamp(0.875rem, 0.677rem + 0.845vi, 1.438rem);
+  font-weight: var(--main-weight);
+  text-transform: uppercase;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 49px;
+  margin-block-start: 101px;
+  margin-block-end: 49px;
+}
+
+.card {
+  border: 2px solid var(--main-color);
+  background-color: var(--background-color);
+}
+
+.card__title {
+  padding-inline: 10px;
+  padding-top: 2px;
+  padding-bottom: 7px;
+  font-family: var(--main-family);
+  font-weight: var(--accent-weight);
+  font-size: 18px;
+  text-wrap: balance;
+  border-block-end: 2px solid var(--main-color);
+}
+
+.card__container {
+  position: relative;
+  inline-size: 100%;
+  margin-block-end: 25px;
+  border-block-end: 2px solid var(--main-color);
+}
+
+.card__image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  vertical-align: bottom;
+}
+
+.filter-saturate {
+  filter: saturate(300%) brightness(60%);
+}
+
+.filter-invert {
+  animation: invert 3s 0.7s infinite;
+}
+
+.filter-brightness {
+  filter: brightness(70%);
+}
+
+.filter-hue-rotate {
+  animation: rotate 15s infinite;
+}
+
+.filter-sepia {
+  filter: sepia(0.8);
+}
+
+.filter-contrast {
+  filter: contrast(300%);
+}
+
+.filter-grayscale {
+  filter: grayscale(1);
+  transition: 0.7s linear;
+}
+
+.filter-blur {
+  filter: blur(5px);
+}
+
+.filter-blur:hover {
+  filter: blur(0px);
+  transition: 0.3s linear;
+}
+
+.filter-grayscale:hover {
+  filter: none;
+}
+
+.card__lable {
+  position: absolute;
+  font-family: var(--accent-family);
+  font-weight: var(--main-weight);
+  font-size: 14px;
+  top: 23px;
+  right: 11px;
+  mix-blend-mode: hard-light;
+  opacity: 0.7;
+  text-transform: uppercase;
+  @media (width > 375px) {
+    top: 27px;
+    right: 25px;
+  }
+}
+
+@supports (-webkit-text-stroke: 1px var(--background-color)) {
+  .card__lable {
+    -webkit-text-stroke: 1px var(--background-color);
+  }
+}
+
+@supports not (-webkit-text-stroke: 1px var(--background-color)) {
+  .card__lable {
+    text-shadow: 2px 1px var(--background-color);
+  }
+}
+
+.lable-low {
+  text-transform: lowercase;
+}
+
+.card__description {
+  font-family: var(--main-family);
+  font-size: 18px;
+  margin-block-end: 25px;
+  padding-inline: 25px;
+  text-wrap: balance;
+}
+
+.card p {
+  text-shadow: 1px 1px var(--shadow-color);
+}
+
+.card__preface {
+  margin-block-end: 27px;
+}
+
+.card__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-inline: 26px;
+  padding-bottom: 25px;
+  gap: 8px;
+}
+
+.card__icon-button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  outline: 2px solid transparent;
+  transition: 0.3s ease;
+  &:focus-visible {
+    outline: 2px solid var(--main-color);
+  }
+}
+
+.card__like-button {
+  padding: 13.5px 36px;
+  max-inline-size: 127px;
+}
+
+.card__like-button:focus {
+  border: none;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 4px 4px 0 0 #000;
+}
+
+.text-capital {
+  text-transform: capitalize;
+}
+
+.modal {
+  border: 2px solid var(--main-color);
+  inline-size: clamp(21.313rem, 21.048rem + 1.127vi, 22.063rem);
+  font-family: var(--accent-family);
+  font-weight: var(--main-weight);
+  text-transform: uppercase;
+  font-size: 14px;
+  block-size: 191px;
+}
+
+.modal[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.modal[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.modal__content svg {
+  width: 39px;
+}
+
+.modal__content span {
+  line-height: 1.5;
+}
+
+.button {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  outline: 2px solid var(--main-color);
+  color: var(--background-color);
+  align-items: center;
+  background-color: var(--background-color);
+  cursor: pointer;
+  @media (width > 375px) {
+    flex-direction: row;
+  }
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--main-color);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover:after {
+  transform: scaleX(1);
+}
+
+footer {
+  inline-size: var(--page-inline-size);
+  margin: auto;
+}
+
+.button-save {
+  margin-inline: auto;
+  padding: 17px 20px;
+  gap: 8px;
+  margin-bottom: 105px;
+}
+
+.button-save svg {
+  position: relative;
+  block-size: 28px;
+  z-index: 1;
+  mix-blend-mode: difference;
+  @media (width > 375px) {
+    block-size: 21px;
+  }
+}
+
+.button-close {
+  padding: 12.5px 132px;
+}
+
+.button__text {
+  position: relative;
+  font-family: var(--accent-family);
+  font-weight: var(--main-weight);
+  font-size: 14px;
+  line-height: 0.9;
+  z-index: 10;
+  mix-blend-mode: difference;
+}
+
+.text-high {
+  text-transform: uppercase;
 }

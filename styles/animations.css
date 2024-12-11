@@ -1,11 +1,96 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+@keyframes heartScale {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.25;
+  }
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+@keyframes sparksOpacity {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
 
-*/
+@keyframes invert {
+  0% {
+    filter: invert(0%);
+  }
+  100% {
+    filter: invert(100%);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    filter: hue-rotate(0turn);
+  }
+  100% {
+    filter: hue-rotate(1turn);
+  }
+}
+
+.is-liked .heart {
+  animation: heartScale 0.3s 0.1s ease-in;
+  transform-origin: center center;
+}
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--main-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--accent-color);
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--main-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--accent-color);
+}
+
+.like-icon .contour {
+  fill: var(--main-color);
+  transition: fill 0.1s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.sparks {
+  opacity: 0%;
+}
+
+.is-liked .sparks {
+  animation: sparksOpacity 0.3s 0.3s ease-in;
+}
