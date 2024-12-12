@@ -7,13 +7,14 @@
   background-image: var(--linear-gradient);
   background-attachment: fixed;
   background-size: cover;
+  font-variation-settings: "wdht" var(--main-weight);
 }
 
-@supports (font-variation-settings: var(--main-weight)) {
+/* @supports (font-variation-settings: var(--main-weight)) {
   .page {
     font-family: var(--main-family);
   }
-}
+} */
 
 .header {
   display: flex;
