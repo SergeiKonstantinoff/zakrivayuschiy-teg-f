@@ -9,6 +9,12 @@
   --accent-color: #ff0000;
   --shadow-color: rgb(122, 122, 122, 0.5);
   --background-color: #fff;
+  --header-title-size: clamp(0.875rem, 0.677rem + 0.845vi, 1.438rem);
+  --header-logo-size: clamp(3.063rem, 2.71rem + 1.502vi, 4.063rem);
+  --font-size-text: 18px;
+  --svg-size: 39px;
+  --modal-button-size: 12.5px 132px;
+  --modal-inline-size: clamp(21.313rem, 21.048rem + 1.127vi, 22.063rem);
   --linear-gradient: repeating-linear-gradient(
       90deg,
       #d3d3d3 0 2px,
@@ -16,4 +22,16 @@
     ),
     repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 /0) 2px 4px),
     linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+}
+
+@media (width < 375px) {
+  :root {
+    --page-inline-size: 100%;
+    --header-title-size: clamp(0.625rem, -0.83rem + 7.273vi, 0.875rem);
+    --header-logo-size: clamp(2.5rem, -0.773rem + 16.364vi, 3.063rem);
+    --font-size-text: 15px;
+    --modal-inline-size: clamp(18.75rem, 17.87rem + 3.756vi, 21.25rem);
+    --svg-size: 35px;
+    --modal-button-size: 12.5px 110px;
+  }
 }

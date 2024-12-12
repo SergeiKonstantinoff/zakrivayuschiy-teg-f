@@ -33,7 +33,7 @@
 .header__logo {
   font-family: var(--accent-family);
   font-weight: var(--main-weight);
-  font-size: clamp(3.063rem, 2.71rem + 1.502vi, 4.063rem);
+  font-size: var(--header-logo-size);
   text-transform: uppercase;
   text-decoration: none;
   margin-block-end: 20px;
@@ -41,7 +41,7 @@
 
 .header__title {
   font-family: var(--accent-family);
-  font-size: clamp(0.875rem, 0.677rem + 0.845vi, 1.438rem);
+  font-size: var(--header-title-size);
   font-weight: var(--main-weight);
   text-transform: uppercase;
 }
@@ -160,7 +160,7 @@ main {
 
 .card__description {
   font-family: var(--main-family);
-  font-size: 18px;
+  font-size: var(--font-size-text);
   margin-block-end: 25px;
   padding-inline: 25px;
   text-wrap: balance;
@@ -214,7 +214,7 @@ main {
 
 .modal {
   border: 2px solid var(--main-color);
-  inline-size: clamp(21.313rem, 21.048rem + 1.127vi, 22.063rem);
+  inline-size: var(--modal-inline-size);
   font-family: var(--accent-family);
   font-weight: var(--main-weight);
   text-transform: uppercase;
@@ -243,7 +243,7 @@ main {
 }
 
 .modal__content svg {
-  width: 39px;
+  width: var(--svg-size);
 }
 
 .modal__content span {
@@ -303,7 +303,7 @@ footer {
 }
 
 .button-close {
-  padding: 12.5px 132px;
+  padding: var(--modal-button-size);
 }
 
 .button__text {
