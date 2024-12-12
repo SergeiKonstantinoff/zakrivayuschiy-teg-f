@@ -14,3 +14,9 @@
   src: url(../fonts/PressStart2P-Regular.woff) format("woff");
   font-weight: 400;
 }
+
+@supports (font-variation-settings: var(--main-weight)) {
+  .page {
+    font-family: var(--main-family);
+  }
+}
