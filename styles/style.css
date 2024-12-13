@@ -4,6 +4,7 @@
   font-family: "Inter", sans-serif;
   margin-block-start: 100px;
   font-weight: var(--main-weight);
+  background-color: #b9b9b9;
   background-image: var(--linear-gradient);
   background-attachment: fixed;
   background-size: cover;
@@ -37,7 +38,12 @@
   font-size: var(--header-logo-size);
   text-transform: uppercase;
   text-decoration: none;
+  pointer-events: none;
+  cursor: default;
   margin-block-end: 20px;
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .header__title {
@@ -65,7 +71,7 @@ main {
   padding-top: 2px;
   padding-bottom: 7px;
   font-family: var(--main-family);
-  font-weight: var(--accent-weight);
+  font-variation-settings: "wght" var(--accent-weight);
   font-size: 18px;
   text-wrap: balance;
   border-block-end: 2px solid var(--main-color);
@@ -86,11 +92,11 @@ main {
 }
 
 .filter-saturate {
-  filter: saturate(300%) brightness(60%);
+  filter: saturate(200%) brightness(80%);
 }
 
 .filter-invert {
-  animation: invert 3s 0.7s infinite;
+  filter: invert(85%);
 }
 
 .filter-brightness {
@@ -98,7 +104,7 @@ main {
 }
 
 .filter-hue-rotate {
-  animation: rotate 15s infinite;
+  filter: hue-rotate(0.5turn);
 }
 
 .filter-sepia {
@@ -110,21 +116,11 @@ main {
 }
 
 .filter-grayscale {
-  filter: grayscale(1);
-  transition: 0.7s linear;
+  filter: grayscale(0.5);
 }
 
 .filter-blur {
-  filter: blur(5px);
-}
-
-.filter-blur:hover {
-  filter: blur(0px);
-  transition: 0.3s linear;
-}
-
-.filter-grayscale:hover {
-  filter: none;
+  filter: blur(1px);
 }
 
 .card__lable {
@@ -135,23 +131,20 @@ main {
   top: 23px;
   right: 11px;
   mix-blend-mode: hard-light;
-  opacity: 0.7;
+  opacity: 0.5;
   text-transform: uppercase;
+  text-shadow: 2px 1px var(--background-color);
   @media (width > 375px) {
     top: 27px;
     right: 25px;
   }
 }
 
-@supports (-webkit-text-stroke: 1px var(--background-color)) {
+@supports (text-stroke: 1px var(--background-color)) or
+  (-webkit-text-stroke: 1px var(--background-color)) {
   .card__lable {
     -webkit-text-stroke: 1px var(--background-color);
-  }
-}
-
-@supports not (-webkit-text-stroke: 1px var(--background-color)) {
-  .card__lable {
-    text-shadow: 2px 1px var(--background-color);
+    text-shadow: none;
   }
 }
 
@@ -160,19 +153,18 @@ main {
 }
 
 .card__description {
-  font-family: var(--main-family);
-  font-size: var(--font-size-text);
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
   margin-block-end: 25px;
   padding-inline: 25px;
-  text-wrap: balance;
-}
-
-.card p {
-  text-shadow: 1px 1px var(--shadow-color);
 }
 
 .card__preface {
-  margin-block-end: 27px;
+  font-family: var(--main-family);
+  font-variation-settings: "wght" var(--main-weight);
+  font-size: var(--font-size-text);
+  text-wrap: balance;
 }
 
 .card__controls {
@@ -185,9 +177,11 @@ main {
 }
 
 .card__icon-button {
+  display: flex;
+  align-items: center;
   cursor: pointer;
   background-color: transparent;
-  padding: 0;
+  padding: 2px;
   border: none;
   outline: 2px solid transparent;
   transition: 0.3s ease;
@@ -206,7 +200,7 @@ main {
 }
 
 .card__like-button:focus-visible {
-  box-shadow: 4px 4px 0 0 #000;
+  box-shadow: 2px 2px 0 2px #000;
 }
 
 .text-capital {
@@ -220,14 +214,20 @@ main {
   font-weight: var(--main-weight);
   text-transform: uppercase;
   font-size: 14px;
-  block-size: 191px;
+  padding-block: 30px;
+  padding-inline: 40px;
+  @media (width > 375px) {
+    padding-inline: 30px;
+  }
+  @media (width < 375px) {
+    padding-inline: 20px;
+  }
 }
 
 .modal[open] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 30px;
 }
 
@@ -238,7 +238,6 @@ main {
 .modal__content {
   display: flex;
   flex-direction: row;
-
   justify-content: flex-start;
   gap: 20px;
 }
@@ -249,6 +248,7 @@ main {
 
 .modal__content span {
   line-height: 1.5;
+  inline-size: clamp(12.375rem, 11.583rem + 3.38vi, 14.625rem);
 }
 
 .button {
@@ -256,6 +256,7 @@ main {
   position: relative;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border: none;
   outline: 2px solid var(--main-color);
   color: var(--background-color);
@@ -281,11 +282,6 @@ main {
   transform: scaleX(1);
 }
 
-footer {
-  inline-size: var(--page-inline-size);
-  margin: auto;
-}
-
 .button-save {
   margin-inline: auto;
   padding: 17px 20px;
@@ -304,7 +300,7 @@ footer {
 }
 
 .button-close {
-  padding: var(--modal-button-size);
+  padding: 12.5px var(--button-size);
 }
 
 .button__text {

@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
   --main-family: "Inter-Variable", Inter, sans-serif;
-  --accent-family: "Press Start 2P", Arial, sans-serif;
+  --accent-family: "Press Start 2P", fantasy, sans-serif;
   --main-weight: 400;
   --accent-weight: 700;
   --page-inline-size: clamp(23.438rem, 16.285rem + 30.516vi, 43.75rem);
@@ -13,7 +13,7 @@
   --header-logo-size: clamp(3.063rem, 2.71rem + 1.502vi, 4.063rem);
   --font-size-text: 18px;
   --svg-size: 39px;
-  --modal-button-size: 12.5px 132px;
+  --button-size: clamp(7.25rem, 6.832rem + 1.784vi, 8.438rem);
   --modal-inline-size: clamp(21.313rem, 21.048rem + 1.127vi, 22.063rem);
   --linear-gradient: repeating-linear-gradient(
       90deg,
@@ -32,6 +32,6 @@
     --font-size-text: 15px;
     --modal-inline-size: clamp(18.75rem, 17.87rem + 3.756vi, 21.25rem);
     --svg-size: 35px;
-    --modal-button-size: 12.5px 110px;
+    --button-size: clamp(5.625rem, 1.989rem + 18.182vi, 6.25rem);
   }
 }
